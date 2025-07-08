@@ -6,7 +6,7 @@ function M.create_window(urls)
     return nil
   end
   
-  local width = 80
+  local width = math.min(180, vim.o.columns - 10)
   local height = math.min(#urls + 2, 20)
   local row = math.floor((vim.o.lines - height) / 2)
   local col = math.floor((vim.o.columns - width) / 2)
@@ -20,7 +20,7 @@ function M.create_window(urls)
     col = col,
     style = "minimal",
     border = "rounded",
-    title = " URLs (" .. #urls .. ") ",
+    title = " url-picker (" .. #urls .. ") ",
     title_pos = "center"
   })
   
